@@ -18,7 +18,7 @@ async function loadFacebookClasses() {
     } catch (localError) {
         // Fallback về GitHub
         try {
-            const githubUrl = 'https://raw.githubusercontent.com/DuckCIT/AllReacts-for-Facebook-Stories/main/data/facebook.json';
+            const githubUrl = 'https://raw.githubusercontent.com/nomocp/FB-Story-Emoji-Reaction/refs/heads/main/data/facebook.json';
             let response = await fetch(githubUrl);
             if (!response.ok) throw new Error(`Failed to fetch classes from GitHub: ${response.status}`);
             FB_CLASSES = await response.json();
@@ -48,7 +48,7 @@ async function loadEmojis() {
     } catch (localError) {
         // Fallback về GitHub
         try {
-            const githubUrl = 'https://raw.githubusercontent.com/DuckCIT/AllReacts-for-Facebook-Stories/main/data/emojis.json';
+            const githubUrl = 'https://raw.githubusercontent.com/nomocp/FB-Story-Emoji-Reaction/refs/heads/main/data/emojis.json';
             let response = await fetch(githubUrl);
             if (!response.ok) throw new Error(`Failed to fetch emoji from GitHub: ${response.status}`);
             EMOJI_LIST = await response.json();
@@ -80,7 +80,7 @@ function getEmojiName(emoji) {
 
 // Check for updates and add badge to button if available
 function checkUpdate(btnReact) {
-    const versionURL = 'https://raw.githubusercontent.com/DuckCIT/AllReacts-for-Facebook-Stories/main/data/version.json';
+    const versionURL = 'https://raw.githubusercontent.com/nomocp/FB-Story-Emoji-Reaction/refs/heads/main/data/version.json';
     const currentVersion = extension.runtime.getManifest().version;
     
     fetch(versionURL)
